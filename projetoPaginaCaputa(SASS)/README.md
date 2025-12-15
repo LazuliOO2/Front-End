@@ -1,4 +1,4 @@
-# 🐍 Jornada Python – Landing Page (Sass)
+# 🐍 Jornada SASS – Landing Page (Sass)
 
 Este projeto é uma **landing page responsiva** desenvolvida com **HTML5 e Sass**, focada em organização de estilos, responsividade por breakpoints e boas práticas modernas de CSS.  
 O layout é uma **cópia educacional do site da Hashtag Treinamentos**, utilizada exclusivamente para **estudo e prática**.
