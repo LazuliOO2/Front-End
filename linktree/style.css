@@ -1,0 +1,333 @@
+:root {
+  --bg: #0b1020;
+  --card: #111735;
+  --muted: #8fa1c7;
+  --text: #e8eeff;
+  --accent: #7c9cff;
+  --accent-2: #4ee0b8;
+  --danger: #ff7a7a;
+  --shadow: 0 10px 30px rgba(0, 0, 0, .3);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 10% 0%, #0f1842 0%, #0b1020 40%, #080b16 100%), var(--bg);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+/* layout */
+.shell {
+  width: min(1100px, 100%);
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 1.1fr 1fr;
+}
+
+@media (max-width: 900px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .05), transparent 60%), var(--card);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.panel {
+  padding: 22px;
+}
+
+.title {
+  font-size: 20px;
+  letter-spacing: .3px;
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* form */
+form {
+  display: grid;
+  gap: 14px;
+}
+
+.row {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+input[type="text"],
+input[type="url"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .04);
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+input::placeholder {
+  color: #9fb0d8;
+  opacity: .7;
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(124, 156, 255, .2);
+  background: rgba(255, 255, 255, .06);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+button {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: transform .05s ease, filter .2s ease, background .2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--accent), #5c80ff);
+  color: #0b1020;
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, .06);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, .1);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.error {
+  color: var(--danger);
+  font-size: 12px;
+}
+
+/* mini preview da foto no formulário */
+.thumb-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  padding: 10px;
+  border: 1px dashed rgba(255, 255, 255, .18);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .04);
+}
+
+.thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .12);
+}
+
+.thumb-info {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.remove-thumb {
+  position: absolute;
+  top: 10px;
+  right: 10px; /* move para o canto direito */
+  background: transparent;
+  border: none;
+  color: var(--danger);
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.remove-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* preview (telefone) */
+.preview {
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.phone {
+  width: min(380px, 92%);
+  aspect-ratio: 9/19;
+  border-radius: 36px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .05), transparent 50%), #0a0f23;
+  box-shadow: inset 0 0 0 10px #0a0f23, 0 20px 60px rgba(0, 0, 0, .5);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.notch {
+  align-self: center;
+  width: 34%;
+  height: 18px;
+  background: #050814;
+  border-radius: 0 0 14px 14px;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .05);
+}
+
+.bio {
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, .2);
+  object-fit: cover;
+  background: rgba(255, 255, 255, .06);
+}
+
+.name {
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+
+.links {
+  display: grid;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.link-btn {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #0a1024;
+  background: linear-gradient(180deg, var(--accent-2), #31caa1);
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  border: 0;
+  box-shadow: 0 8px 18px rgba(78, 224, 184, .25);
+  transition: transform .05s ease, filter .2s ease;
+}
+
+.link-btn:active {
+  transform: translateY(1px);
+}
+
+.host {
+  font-size: 12px;
+  color: rgba(0, 0, 0, .55);
+  font-weight: 600;
+}
+
+.empty {
+  opacity: .6;
+  text-align: center;
+  padding: 24px;
+  border: 1px dashed rgba(255, 255, 255, .2);
+  border-radius: 16px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Telas menores que 900px (tablets em modo retrato) */
+@media (max-width: 900px) {
+  body {
+    overflow-y: auto; /* Permite rolar a página inteira */
+    padding: 20px;
+  }
+  .shell {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 20px;
+  }
+  .preview {
+      order: -1; /* Move o preview para cima no mobile */
+  }
+}
+
+/* Telas menores que 600px (celulares) */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+  .panel {
+    padding: 20px 18px;
+  }
+  .title {
+    font-size: 18px;
+  }
+  .actions {
+    flex-direction: column; /* Botões um abaixo do outro */
+    gap: 12px;
+  }
+  .actions button {
+    width: 100%; /* Ocupam toda a largura */
+  }
+  .phone {
+    width: min(320px, 100%); /* Ajusta o tamanho do preview do celular */
+  }
+}

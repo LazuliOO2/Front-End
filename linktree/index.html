@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="shell">
+    <!-- Formulário -->
+    <section class="card panel" aria-labelledby="form-title">
+      <h1 id="form-title" class="title">Gerador de "Link na Bio"</h1>
+      <p class="subtitle">
+        Preencha os campos e clique em <strong>Gerar preview</strong>. O resultado aparece ao lado.
+      </p>
+
+      <form id="bio-form" novalidate>
+        <div class="row">
+          <label for="name">Nome</label>
+          <input 
+            id="name" 
+            type="text" 
+            placeholder="Ex.: Diogo / @seuuser" 
+            autocomplete="name" 
+          />
+        </div>
+
+        <div class="row">
+          <label for="photo">Foto (URL da imagem)</label>
+          <input 
+            id="photo" 
+            type="url" 
+            placeholder="https://exemplo.com/minha-foto.jpg" 
+            inputmode="url" 
+          />
+          <span class="hint">
+            Dica: use um link HTTPS direto para uma imagem (JPG/PNG/WebP) ou carregue um arquivo local.
+          </span>
+
+          
+          <div class="thumb-wrap" id="thumb-wrap">
+            <img id="thumb" class="thumb" alt="Pré-visualização da foto" />
+            <div class="thumb-info" id="thumb-info">
+              Pré-visualização aparecerá aqui quando você escolher um arquivo.
+            </div>
+            <button type="button" id="remove-photo" class="remove-thumb" aria-label="Remover foto">✖</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <label for="link1">Link 1 (URL)</label>
+          <input 
+            id="link1" 
+            type="url" 
+            placeholder="https://meusite.com" 
+            inputmode="url" 
+          />
+        </div>
+
+        <div class="row">
+          <label for="link2">Link 2 (URL)</label>
+          <input 
+            id="link2" 
+            type="url" 
+            placeholder="https://instagram.com/seuuser" 
+            inputmode="url" 
+          />
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn-primary">Gerar preview</button>
+          <button type="button" id="fill-demo" class="btn-ghost">Preencher exemplo</button>
+          <button type="button" id="upload-file-btn" class="btn-ghost">Carregar foto (arquivo)</button>
+          <input type="file" id="photo-file" accept="image/*" hidden />
+          <span id="form-error" class="error" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+
+      <footer>
+        Made with ❤ – sem dependências, HTML/CSS/JS puro.
+      </footer>
+    </section>
+
+    <!-- Preview -->
+    <section class="card preview" aria-labelledby="preview-title">
+      <h2 id="preview-title" class="visually-hidden">Preview</h2>
+      <div class="phone" id="phone">
+        <div class="notch" aria-hidden="true"></div>
+        <div id="empty-state" class="empty">
+          Preencha o formulário e gere seu preview aqui.
+        </div>
+        <div id="bio" class="bio" hidden>
+          <img id="avatar" class="avatar" alt="Foto de perfil" />
+          <div class="name" id="display-name"></div>
+          <div class="links" id="links"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
