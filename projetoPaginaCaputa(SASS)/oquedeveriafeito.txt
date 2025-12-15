@@ -1,0 +1,170 @@
+Beleza. Aqui vai a lista antidesastre, versão “cola colada na parede”, para você nunca mais criar um site que só funciona quando os planetas se alinham no Chrome.
+
+CHECKLIST PARA NÃO QUEBRAR EM OUTROS NAVEGADORES
+1. Pensar em layout, não em “empurrar coisas”
+
+❌ O que você fez
+
+margin-left: 420px
+
+ajustes manuais até “parecer certo”
+
+✅ O que deveria ter feito
+
+Usar Flexbox ou Grid
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+2. Responsividade é por tamanho de tela
+
+❌ O que você fez
+
+Ajustou olhando só uma resolução
+
+Testou só no Chrome
+
+✅ O que deveria ter feito
+
+Criar breakpoints claros
+
+@media (max-width: 768px) { /* mobile */ }
+@media (min-width: 769px) and (max-width: 1024px) { /* tablet */ }
+@media (min-width: 1025px) { /* desktop */ }
+
+3. Nunca confiar em largura fixa para layout
+
+❌ O que você fez
+
+Elementos dependentes de px grandes
+
+Imagens sem limite
+
+✅ O que deveria ter feito
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+E containers:
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+4. Centralização se faz com CSS moderno, não com gambiarra
+
+❌ O que você fez
+
+margin-left, position forçado
+
+✅ O que deveria ter feito
+
+.container {
+  margin: 0 auto;
+}
+
+
+ou
+
+display: flex;
+justify-content: center;
+
+5. Evitar estilos inline como se fossem inofensivos
+
+❌ O que você fez
+
+<div style="margin-left: 420px;">
+
+
+✅ O que deveria ter feito
+
+Tudo no CSS
+
+Classes reutilizáveis
+
+.hero-title {
+  text-align: center;
+}
+
+6. Sempre usar reset ou normalização
+
+❌ O que você quase fez
+
+Só zerar margin/padding
+
+✅ O que deveria ter feito (correto)
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+E aceitar que navegadores têm estilos padrão diferentes.
+
+7. Testar redimensionando, não trocando navegador
+
+❌ O que você fez
+
+“No Chrome funciona”
+
+✅ O que deveria ter feito
+
+Arrastar a largura da tela
+
+Testar:
+
+320px
+
+375px
+
+768px
+
+1024px
+
+Desktop largo
+
+Se quebra ao arrastar, vai quebrar em alguém.
+
+8. Layout primeiro, detalhe depois
+
+❌ O que você fez
+
+Ajustou pixel por pixel desde o início
+
+✅ O que deveria ter feito
+
+Montar estrutura flex/grid
+
+Garantir que não quebra
+
+Só depois ajustar espaçamento e estética
+
+9. Pensar “isso estica?” antes de escrever CSS
+
+Pergunta obrigatória antes de salvar o arquivo:
+
+Se essa tela ficar menor ou maior, isso continua fazendo sentido?
+
+Se a resposta for “não sei”, já está errado.
+
+10. Regra de ouro
+
+Se você escreveu isso:
+
+margin-left: 400px;
+
+
+Pare. Levante. Pense na vida. Refaça com flex ou grid.
+
+Frase para anotar e nunca esquecer
+
+“Se eu precisei empurrar algo com margin-left, o layout já está errado.”

@@ -1,0 +1,366 @@
+@media (max-width:1440px) {
+    .box-start {
+    height: auto !important; 
+    min-height: 700px;
+    padding-bottom: 50px; /* Um respiro no final */
+  }
+
+  /* 2. Ajusta o card branco */
+  .warning-banners {
+    /* Deixa a altura automática APENAS aqui. 
+       No desktop grande continua fixo como você queria. */
+    height: auto !important; 
+    min-height: 600px;
+
+    /* Aumenta a largura para o texto ter espaço para respirar */
+    width: 45%; /* Era 28%, aumentamos para caber o texto */
+    max-width: 500px; 
+    
+    /* Ajuste fino do posicionamento se precisar */
+    transform: translateX(50px); /* Diminui um pouco o deslocamento lateral */
+  }
+  
+  /* 3. (Opcional) Se quiser garantir, diminui um tico a fonte só nessa resolução */
+  .content-banners h1 {
+    font-size: 1.8em; /* Levemente menor que o original */
+  }
+}
+
+/* =========================================
+   MEDIA QUERY - TABLET / LAPTOP PEQUENO (1024px)
+   ========================================= */
+@media (max-width: 1024px) {
+
+  /* --- 1. AJUSTE DO CARTÃO BRANCO (Preencher e Soltar altura) --- */
+  .warning-banners {
+    /* Libera a altura para ela encolher se o texto for curto, 
+       mas aumenta o padding para dar volume se precisar */
+    min-height: auto; 
+    height: auto !important;
+    padding: 40px 30px; /* Mais preenchimento interno */
+    
+    /* Largura um pouco maior para acomodar a fonte maior */
+    width: 55%; 
+  }
+
+  /* Aumenta o Título para preencher mais espaço */
+  .content-banners h1 {
+    font-size: 2rem; /* Aumentado */
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  /* Aumenta a Lista de Itens */
+  .caixa__lista {
+    font-size: 16px; /* Aumenta a letra da lista */
+    margin-bottom: 20px;
+
+    li {
+      margin-bottom: 15px; /* Espalha mais os itens verticalmente */
+      padding-left: 30px;
+    }
+
+    img {
+      width: 20px; /* Ajusta o ícone proporcionalmente */
+      top: 2px;
+    }
+  }
+
+  /* Aumenta o texto "100% Online" */
+  .content-banners p[style*="font-weight: 700"] {
+      font-size: 22px !important; 
+      margin-top: 15px !important;
+      margin-bottom: 15px !important;
+  }
+
+  /* --- 2. MOVER A LOGO PARA A ESQUERDA --- */
+  .caixa__logo {
+    /* Removemos aquele cálculo maluco de 590% */
+    transform: none; 
+    left: auto; /* Anula posicionamento anterior se houver */
+    
+    /* Fixamos no canto superior direito do cartão branco */
+    right: 20px; /* 20px da borda direita (aumente para mover mais à esquerda) */
+    top: -25px;  /* Para ficar metade para fora como no design */
+  }
+
+  main .hero-title {
+    margin-left: 0 !important;   /* Remove a margem gigante */
+    margin-bottom: 30px;         /* Ajuste de respiro */
+    justify-content: center;     /* Centraliza o título e a seta */
+    text-align: center;          
+    padding: 0 20px;             /* Garante que não encoste nas bordas */
+  }
+
+  /* 3. AJUSTE DAS THUMBNAILS (IMAGENS DAS AULAS) */
+  /* Para garantir que caibam na tela de 1024px sem quebrar */
+  .class-content img {
+    width: 45%; /* Faz as imagens ocuparem menos da metade cada */
+    height: auto; }
+
+}
+
+/* =========================================
+   MEDIA QUERY - TABLET / MOBILE LANDSCAPE (768px)
+   ========================================= */
+@media (max-width: 768px) {
+
+
+    html, body {
+    overflow-x: hidden; /* Corta qualquer coisa que tente sair da tela */
+    width: 100%;
+    position: relative;
+  }
+  /* =========================================
+     1. CORREÇÃO DA HERO (PRIMEIRA IMAGEM)
+     Fundo não ocupando tudo / conteúdo cortado
+     ========================================= */
+  
+  .box-start {
+    /* Garante que o fundo cubra toda a área disponível */
+    background-size: cover;
+    background-position: center top; 
+    
+    /* Remove a altura fixa e deixa crescer conforme o conteúdo empilha */
+    height: auto !important;
+    min-height: 100vh; /* Ocupa pelo menos a altura da tela */
+    padding-bottom: 0; /* Remove padding extra se houver */
+  }
+
+  .home-content {
+    /* Empilha: Card Branco em cima, Lira embaixo */
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+  }
+
+  /* Ajusta a imagem do Lira na primeira dobra para não vazar ou cortar */
+  .img-lira-start {
+    margin-top: 30px;
+    width: 80%; /* Reduz a largura para caber na tela */
+    max-width: 400px;
+    height: auto;
+    
+    /* Centraliza a imagem */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* =========================================
+     2. CORREÇÃO DA ONDA AZUL (SEGUNDA IMAGEM)
+     Conteúdo saindo da onda / Título quebrado
+     ========================================= */
+
+  .conteudo-azul {
+    /* TRUQUE: Adiciona uma cor sólida igual à da imagem. 
+       Assim, se a imagem acabar, a cor continua preenchendo o fundo. 
+       (Usei a variável --brand que é #0f6b82, ajuste se o tom for diferente) */
+    background-color: #0f6b82; 
+    
+    /* Ajusta a imagem da onda para ficar fixa no topo */
+    background-position: top center;
+    background-size: 100% auto; /* Largura 100%, altura automática (mantém a curva) */
+    background-repeat: no-repeat;
+    
+    /* Padding generoso para o texto não bater no topo da onda */
+    padding-top: 10vw; /* Padding proporcional à largura da tela */
+    padding-bottom: 60px;
+    
+    height: auto !important;
+  }
+
+  .container-limitado {
+    flex-direction: column; /* Texto em cima, foto embaixo */
+    gap: 40px;
+    align-items: center;
+  }
+
+  /* Arrumar o Título e Texto da seção azul */
+  .coluna-texto {
+    max-width: 100%;
+    text-align: center; /* Centraliza todo o texto */
+    padding: 0 20px;
+  }
+
+  .titulo-destaque {
+    /* Remove a barra lateral amarela pois fica feia centralizada */
+    border-left: none; 
+    padding-left: 0;
+    
+    /* Adiciona uma barra amarela EMBAIXO do título */
+    border-bottom: 4px solid #f2c94c;
+    display: inline-block; /* Faz a borda ter o tamanho do texto */
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    
+    font-size: 24px; /* Leve redução para não quebrar palavra errada */
+  }
+
+  /* Garante que a foto do Lira (segunda foto) fique centralizada */
+  .coluna-imagem img {
+    margin: 0 auto;
+    display: block;
+    max-width: 300px;
+  }
+
+  #box__button{
+    margin-bottom: 10px;
+  }
+}
+
+/* =========================================
+   MEDIA QUERY - MOBILE (Celulares - até 480px)
+   ========================================= */
+/* =========================================
+   MEDIA QUERY - MOBILE FINAL (Ajustes Finos)
+   ========================================= */
+@media (max-width: 480px) {
+
+    /* --- 1. HERO / BANNER PRINCIPAL --- */
+  
+  /* Removemos a altura mínima para não sobrar espaço vazio embaixo */
+  .box-start {
+    min-height: auto !important; 
+    padding-bottom: 40px; /* Espaço para o rodapé da seção */
+    height: auto;
+  }
+
+  .home-content {
+    padding-top: 20px;
+    display: block; /* Remove comportamento flex para simplificar */
+  }
+
+  /* Oculta a imagem do instrutor para focar na inscrição (Como você pediu) */
+  .img-lira-start {
+    display: none !important; 
+  }
+
+  /* Ajusta o Card Branco para ser o protagonista */
+  .warning-banners {
+    width: 90% !important; /* Ocupa quase toda a largura */
+    max-width: none;
+    margin: 0 auto; /* Centraliza */
+    transform: none; /* Remove deslocamentos laterais */
+    padding: 30px 20px; /* Reduz padding interno */
+  }
+
+  /* Ajuste fino na Logo flutuante */
+  .caixa__logo {
+    right: 50%; /* Centraliza horizontalmente */
+    transform: translateX(50%); /* Ajuste fino do centro */
+    top: -30px; /* Sobe um pouco */
+  }
+
+  /* Fontes menores para caber no celular */
+  .content-banners h1 {
+    font-size: 1.6rem !important; 
+  }
+  
+  .caixa__subtitulo {
+    font-size: 1.1rem;
+  }
+  
+  .caixa__lista {
+    font-size: 14px;
+    li { margin-bottom: 10px; }
+  }
+
+  /* --- 1. REMOVER A LOGO FLUTUANTE --- */
+  .caixa__logo {
+    display: none !important;
+  }
+
+  /* --- 2. CONSERTAR TEXTO SAINDO DO CINZA (SPAM) --- */
+  .section-warning {
+    height: auto !important; /* Solta a altura para caber o texto */
+    min-height: 100px;
+    padding: 20px;          /* Dá espaço interno */
+    text-align: center;     /* Centraliza o texto */
+    
+    p {
+      padding-top: 0;      /* Remove padding extra antigo */
+      font-size: 0.85rem;  /* Ajusta levemente a fonte */
+      line-height: 1.5;
+    }
+  }
+
+  /* --- 3. REORDENAR OS PASSOS (1 -> 2 -> 3 -> 4) --- */
+  /* O Grid vira Flexbox */
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* O SEGREDO: 'display: contents' faz o navegador ignorar a div .col 
+     e tratar os itens dentro dela (os steps) como filhos diretos do .grid.
+     Assim conseguimos usar 'order' neles. */
+  .col {
+    display: contents;
+  }
+
+  /* Esconde a imagem do meio nos passos (opcional, para economizar espaço) */
+  .center {
+    display: none; 
+  }
+
+  /* Agora ordenamos manualmente cada passo */
+  
+  /* Passo 1 (Está na 1ª coluna, é o 1º filho) */
+  .col:nth-child(1) .step:nth-child(1) {
+    order: 1;
+  }
+
+  /* Passo 2 (Está na 3ª div do grid (coluna direita), é o 1º filho) */
+  .col:nth-child(3) .step:nth-child(1) {
+    order: 2;
+  }
+
+  /* Passo 3 (Está na 1ª coluna, é o 2º filho) */
+  .col:nth-child(1) .step:nth-child(2) {
+    order: 3;
+  }
+
+  /* Passo 4 (Está na 3ª div do grid, é o 2º filho) */
+  .col:nth-child(3) .step:nth-child(2) {
+    order: 4;
+  }
+
+
+  /* --- 4. CONSERTAR O RODAPÉ --- */
+  .rodape {
+    height: auto !important; /* Remove altura fixa */
+    flex-direction: column;  /* Um embaixo do outro */
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;      /* Espaçamento */
+    text-align: center;
+    margin-right: 0;         /* Zera margem lateral */
+
+    img {
+      margin: 0 0 15px 0;    /* Espaço entre logo e texto */
+      height: 25px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  }
+}
+
+@media (max-width:375px) {
+    #box__button{
+        width: 360px;
+    }
+}
+
+@media (max-width:320px) {
+    #box__button{
+        width: 310px;
+        font-size: 15px;
+    }
+}
