@@ -16,6 +16,12 @@
 
 ---
 
+### Lista de Perfis com React
+**Descrição:** Aplicação desenvolvida em React para exibição de perfis profissionais, com componentização, uso de props, CSS Modules e ícones interativos.  
+**Tecnologias:** React, Vite, JavaScript, CSS Modules e React Icons.
+
+---
+
 ### Avanti
 **Descrição:** Site desenvolvido como teste técnico para uma vaga de emprego.  
 **Tecnologias:** HTML, CSS (Bootstrap) e JavaScript.
