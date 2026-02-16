@@ -82,16 +82,12 @@ Para rodar o projeto:
 
 1.  Instale as dependências:
 
-```
 
-```
     npm install
 
 2.  Compile o SCSS:
 
-```
 
-```
     npm run sass
 
 3.  Abra o arquivo `index.html` no navegador.
