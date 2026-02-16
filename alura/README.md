@@ -82,14 +82,14 @@ Para rodar o projeto:
 
 1.  Instale as dependências:
 
-```{=html}
+```
 
 ```
     npm install
 
 2.  Compile o SCSS:
 
-```{=html}
+```
 
 ```
     npm run sass
