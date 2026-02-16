@@ -6,7 +6,7 @@
 
 ### Projeto Alura (Competição)
 **Descrição:** Projeto desenvolvido durante uma competição da Alura.  
-**Tecnologias:** HTML, CSS (Bootstrap) e JavaScript.
+**Tecnologias:** HTML, SASS (Bootstrap) e JavaScript.
 
 ---
 
